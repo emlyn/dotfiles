@@ -1,0 +1,16 @@
+# Use C-\ as escape key, so that C-a can be home
+escape \034\034
+
+# Skip the startup message
+startup_message off
+
+# no annoying audible bell, please
+vbell on
+
+defscrollback 1000
+
+# Display a caption string below, appearing like tabs and
+# displaying the window number and application name (by default).
+#caption always "%{kw}%-w%{wr}%n %t%{-}%+w"
+#hardstatus alwayslastline "%-w%{= BW}%50>%n %t%{-}%+w%<C-\\"
+hardstatus alwayslastline '%{= kK}%{w}%H %{K}%= %{= kw}%?%-Lw%?%{B}(%{W}%n*%f %t%?(%u)%?%{B})%{w}%?%+Lw%?%?%= %{K}%{B} %{w}%c%{K}'
