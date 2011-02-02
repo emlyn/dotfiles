@@ -1,11 +1,13 @@
 " Stop behaving like vi; vim enhancements are better
 set nocompatible
 
+set ttyfast     " Smoother changes
+
 """ Moving Around/Editing
 set nostartofline           " Avoid moving cursor to BOL when jumping around
 set virtualedit=block       " Let cursor move past the last char in <C-v> mode
-set scrolloff=3      " Keep 3 context lines above and below the cursor
-set backspace=2      " Allow backspacing over autoindent, EOL, and BOL
+set scrolloff=3             " Keep 3 context lines above and below the cursor
+set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
 set showmatch               " Briefly jump to a paren once it's balanced
 set matchtime=2             " (for only .2 seconds).
 set nowrap                  " don't wrap text
@@ -32,12 +34,12 @@ set foldlevelstart=99       " All folds open by default
 
 set number                  " Display line numbers
 set numberwidth=1           " using only 1 column (and 1 space) while possible
-set background=light
+set background=dark
 
 if has("gui_running")
-    set guioptions-=m           " remove menu bar
-    set guioptions-=T           " remove toolbar
-    set guioptions-=r           " remove right-hand scroll bar
+    set guioptions-=m       " remove menu bar
+    set guioptions-=T       " remove toolbar
+    set guioptions-=r       " remove right-hand scroll bar
     set t_Co=256
 endif
 
@@ -48,16 +50,18 @@ endif
 
 " displays tabs with :set list & displays when a line runs off-screen
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
-set list
+"set list                    " Display $ at end of each line
 
 """" Messages, Info, Status
-set vb t_vb=                " Disable all bells.  I hate ringing/flashing.
+set visualbell	            " No bell sound
+"set vb t_vb=                " Disable all bells.  I hate ringing/flashing.
 set confirm                 " Y-N-C prompt if closing with unsaved changes.
 set showcmd                 " Show incomplete normal mode commands as I type.
 set report=0                " : commands always print changed line count.
 set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
 set ruler                   " Show some info, even without statuslines.
 set laststatus=2            " Always show statusline, even if only 1 window.
+set showmode                " Indicate input or replace mode
 
 """" Tabs/Indent Levels
 set tabstop=4               " <tab> inserts 4 spaces 
@@ -69,7 +73,6 @@ set shiftround              " rounds indent to a multiple of shiftwidth
 """" Tags
 " Tags can be in ./tags, ../tags, ..., /home/tags.
 "set tags+=$HOME/.vim/tags/python.ctags
-"set tags+=$HOME/.vim/tags/django.ctags
 
 set showfulltag             " Show more information while completing tags.
 set cscopetag               " When using :tag, <C-]>, or "vim -t", try cscope:
@@ -146,7 +149,6 @@ map T :TaskList<CR><C-w><Left>
 " Show Project Menu
 map <F3> :NERDTreeToggle<CR>
 
-
 let Tlist_GainFocus_On_ToggleOpen=1
 let g:skip_loading_mswin=1
 
@@ -171,32 +173,8 @@ EOF
 endif
 
 """" Display
-colorscheme desert256
+colorscheme nuvola
 
 " Toggle indent mode off for pasting with F2
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
-set showmode
-
-syntax on	" Syntax highlighting
-set ruler	" Show row/column
-set showmatch	" Show matching brackets
-set nocompatible	" Don't emulate old vi bugs
-filetype on
-set showmode
-set showcmd
-set ignorecase	" Case insensitive search
-set smartcase	" Unless there are upper case characters
-set incsearch	" Show 'best match so far'
-set hlsearch	" Highlight search
-set visualbell	" No bell sound
-set nobackup	" No backup files
-set ttyfast     " Smoother changes
-set expandtab	" No tabs!
-set shiftwidth=2
-set shiftround
-set autoindent
-set smartindent
-set softtabstop=2
-set tabstop=8
-set fileformat=unix
