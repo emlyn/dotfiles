@@ -1,0 +1,5 @@
+#!/bin/sh
+bouncehost=$1
+target=$2
+ 
+ssh $bouncehost nc -w 10 $target 22

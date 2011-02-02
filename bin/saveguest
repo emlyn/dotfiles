@@ -1,0 +1,19 @@
+#!/bin/sh
+
+TEMPLATE="/System/Library/User Template/English.lproj"
+
+cd ~Guest
+
+for sub in .DS_Store Library Desktop Pictures; do
+  echo "Checking $sub"
+  if [ -e $sub ]; then
+    echo "  Removing original"
+    rm -R "$TEMPLATE/$sub"
+    echo "  Saving new version"
+    cp -R "$sub" "$TEMPLATE/$sub"
+  else
+    echo "  Not saving"
+  fi
+done
+
+echo "Done"
