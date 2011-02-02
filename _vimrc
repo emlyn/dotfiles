@@ -12,6 +12,9 @@ set showmatch               " Briefly jump to a paren once it's balanced
 set matchtime=2             " (for only .2 seconds).
 set nowrap                  " don't wrap text
 set linebreak               " don't wrap textin the middle of a word
+if has("mouse")
+    set mouse=a             " position cursor with mouse click (Terminal.app requires MouseTerm)
+endif
 
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
