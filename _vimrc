@@ -1,7 +1,7 @@
 " Stop behaving like vi; vim enhancements are better
 set nocompatible
 
-set ttyfast     " Smoother changes
+set ttyfast                 " Smoother changes
 
 """ Moving Around/Editing
 set nostartofline           " Avoid moving cursor to BOL when jumping around
@@ -95,15 +95,15 @@ if has("win32")
     if ! len(glob("~/backup/"))
         echomsg "Backup directory ~/backup doesn't exist!"
     endif
-    set backupdir^=~/backup    " Backups are written to ~/.backup/ if possible.
-    set directory^=~/backup//  " Swap files are also written to ~/.backup, too.
+    set backupdir^=~/backup//   " Backups are written to ~/backup/ if possible.
+    set directory^=~/backup//   " Swap files are also written to ~/backup/, too.
 endif
 if has("unix")
     if ! len(glob("~/.backup/"))
         echomsg "Backup directory ~/.backup doesn't exist!"
     endif
-    set backupdir^=~/.backup    " Backups are written to ~/.backup/ if possible.
-    set directory^=~/.backup//  " Swap files are also written to ~/.backup, too.
+    set backupdir^=~/.backup//   " Backups are written to ~/.backup/ if possible.
+    set directory^=~/.backup//   " Swap files are also written to ~/.backup, too.
 endif
 
 set writebackup             " Make a backup of the original file when writing
